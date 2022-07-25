@@ -1,0 +1,34 @@
+--Create a bakery store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, section TEXT, price INTEGER, popularity INTEGER);
+
+INSERT INTO store VALUES (1, "muffins", "bakery", 1.99, 65);
+INSERT INTO store VALUES (2, "cake", "bakery", 16.99, 85);
+INSERT INTO store VALUES (3, "cheesecake", "bakery", 8.99, 75);
+INSERT INTO store VALUES (4, "vanilla cookie", "bakery", 0.67, 40);
+INSERT INTO store VALUES (5, "pistachio muffin", "bakery", 2.99, 75);
+INSERT INTO store VALUES (6, "butter bread", "bakery", 5.25, 23);
+INSERT INTO store VALUES (7, "empanada", "pastry", 2.99, 95);
+INSERT INTO store VALUES (8, "blueberry scone", "pastry", 2.99, 50);
+INSERT INTO store VALUES (9, "crossiant", "pastry", 4.99, 75);
+INSERT INTO store VALUES (10, "hot chocolate", "drink", 7.99, 55);
+INSERT INTO store VALUES (11, "coffee", "drink", 2.99, 75);
+INSERT INTO store VALUES (12, "cappucino", "drink", 6.99, 90);
+INSERT INTO store VALUES (13, "tumeric shot", "beverage", 2.99,40);
+INSERT INTO store VALUES (14, "matcha latte", "health", 7.99, 30);
+INSERT INTO store VALUES (15, "donuts", "bakery", 3.99, 50);
+
+--display the database ordered by price. 
+SELECT * FROM store
+ORDER BY price desc; 
+
+--what is the avg price of items in the bakery section? 
+SELECT AVG(price) "avg bakery item price"
+FROM store
+where section='bakery'; 
+
+--what are the most 5 popular items? 
+SELECT item, price, popularity
+FROM store
+order by popularity desc
+limit 5; 
